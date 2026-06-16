@@ -14,6 +14,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    protected User(){
+
+    }
 
     public User(String email, String name){
         this.email=email;
