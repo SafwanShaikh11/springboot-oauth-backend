@@ -4,32 +4,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+
 import java.util.List;
 
 
 @RestController
 public class UserController {
 
-    private final UserRepository userRepository;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
 
     @GetMapping("/me")
-    public User getCurrentUser(@AuthenticationPrincipal OAuth2User user) {
 
-        String email = user.getAttribute("email");
-        String name = user.getAttribute("name");
+    public UserResponseDTO getCurrentUser(@AuthenticationPrincipal OAuth2User user) {
 
-        return userRepository.findByEmail(email)
-                .orElseGet(() -> userRepository.save(new User(email, name)));
+        User CurrentUser = userService.processGoogleUser(user);
+
+        return new UserResponseDTO(
+                CurrentUser.getEmail(),
+                CurrentUser.getName() ,
+                CurrentUser.getRole()
+        );
+
     }
+
 
     @GetMapping("/users")
-    public List<User> getUsers(){
-        return userRepository.findAll();
-
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
+
 }
