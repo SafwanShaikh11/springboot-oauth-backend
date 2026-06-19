@@ -10,10 +10,9 @@ spring:
               - profile
 
   datasource:
-      url: jdbc:postgresql://localhost:5432/SpringAuth
+      url: jdbc:postgresql://host.docker.internal:5432/SpringAuth
       driver-class-name: org.postgresql.Driver
       username: postgres
-
   jpa:
       hibernate:
         ddl-auto: update

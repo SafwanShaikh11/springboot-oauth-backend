@@ -3,6 +3,8 @@ package com.example.demo;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "users")
 
@@ -12,6 +14,7 @@ public class User {
     String email;
     String name;
     private String role;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +27,13 @@ public class User {
     public User(String email, String name) {
         this.email = email;
         this.name = name;
-        this.role= "USER";
+        this.role = "USER";
 
     }
+    // right now i won't b creating hte timestamps for the login I will be moving p
+    //forward with Dockerizing the entire spring boot app and see where it takes me
+
+
 
     public String getEmail() {
         return email;
@@ -35,5 +42,8 @@ public class User {
     public String getName() {
         return name;
     }
-    public String getRole(){return role;}
+
+    public String getRole() {
+        return role;
+    }
 }
