@@ -4,19 +4,23 @@ spring:
       client:
         registration:
           google:
+            Client-id:
+            Client-secret:
 
-            scope:
-              - email
-              - profile
+          scope:
+            - email
+            - profile
 
   datasource:
-      url: jdbc:postgresql://host.docker.internal:5432/SpringAuth
-      driver-class-name: org.postgresql.Driver
-      username: postgres
+    url: jdbc:postgresql://host.docker.internal:5432/SpringAuth
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password:
+
   jpa:
-      hibernate:
-        ddl-auto: update
-      show-sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 
 
