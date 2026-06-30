@@ -12,7 +12,7 @@ spring:
             - profile
 
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/SpringAuth
+    url: jdbc:postgresql://postgres:5432/SpringAuth
     driver-class-name: org.postgresql.Driver
     username: postgres
     password:

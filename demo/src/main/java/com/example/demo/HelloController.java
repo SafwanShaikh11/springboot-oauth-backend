@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,14 +17,14 @@ import java.util.Map;
 public class HelloController {
     //
     @GetMapping("/health")
-    public Map<String, String> health(){
-        Map<String,String> response= new HashMap<>();
-        response.put("status","UP");
+    public Map<String, String> health() {
+        Map<String, String> response = new HashMap<>();
+        response.put("status", "UP");
         return response;
     }
 
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return "Hello, authenticated user";
     }
 
