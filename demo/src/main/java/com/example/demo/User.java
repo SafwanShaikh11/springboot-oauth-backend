@@ -28,21 +28,13 @@ public class User {
         this.email = email;
         this.name = name;
         this.role = "USER";
-
     }
-    // right now i won't b creating hte timestamps for the login I will be moving p
-    //forward with Dockerizing the entire spring boot app and see where it takes me
-
-
-
     public String getEmail() {
         return email;
     }
-
     public String getName() {
         return name;
     }
-
     public String getRole() {
         return role;
     }
