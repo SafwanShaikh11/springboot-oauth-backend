@@ -30,7 +30,7 @@ public class mockTesting {
         //create  fake google user
         OAuth2User oAuth2User = mock(OAuth2User.class);
 
-        User existingUser=new User("walterwhte112@gmail.com","Safwan");
+        User existingUser = new User("walterwhte112@gmail.com", "Safwan");
 
         //teaching it how to behave
         when(oAuth2User.getAttribute("email"))
@@ -43,7 +43,7 @@ public class mockTesting {
         when(userRepository.findByEmail("walterwhte112@gmail.com"))
                 .thenReturn(Optional.of(existingUser));
 
-        /** 1 Act */
+
         //this is the line we're testing .
         User result = userService.processGoogleUser(oAuth2User);
 
@@ -53,5 +53,34 @@ public class mockTesting {
 
     }
 
+    @Test
+    public void shouldCreateNewUserWhenEmailDoesNotExist() {
+        //create a fake google user
+        OAuth2User oAuth2User = mock(OAuth2User.class);
 
+        when(oAuth2User.getAttribute("email"))
+                .thenReturn("walterwhte112@gmail.com");
+
+        when(oAuth2User.getAttribute("name"))
+                .thenReturn("Safwan");
+
+        when(userRepository.findByEmail("walterwhte112@gmail.com"))
+                .thenReturn(Optional.empty());
+
+
+        User savedUser = new User("walterwhte112@gmail.com", "Safwan");
+
+        /** tell the mocked repository what to return when save() is called.*/
+        when(userRepository.save(any(User.class)))
+                .thenReturn(savedUser);
+
+        User result = userService.processGoogleUser(oAuth2User);
+
+        assertEquals(savedUser, result);
+
+        verify(userRepository).findByEmail("walterwhte112@gmail.com");
+        verify(userRepository).save(any(User.class));
+
+
+    }
 }
