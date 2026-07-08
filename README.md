@@ -13,9 +13,14 @@ Currently, authenticated users can sign in with their Google account, have their
 * Spring Boot 3
 * Spring Security
 * OAuth 2.0 (Google Login)
+* PostgreSQL / H2 Database
 * Spring Data JPA
 * H2 Database
 * Maven
+* Docker
+* JUnit 5
+* Mockito
+* Docker
 * Git & GitHub
 
 ## Current Features
@@ -27,15 +32,4 @@ Currently, authenticated users can sign in with their Google account, have their
 * Duplicate-user prevention through email-based lookup
 * H2 in-memory database integration
 * Repository pattern implementation
-
-## Planned Features
-
-- PostgreSQL integration
-- JWT-based authentication
-- User roles and authorization
-- Docker containerization
-- Cloud deployment
-- Audit logging
-- User profile management APIs
-
-Working on H@ authentication flows 
+* Unit and integration testing with JUnit 5, Mockito, and Spring Boot Test
