@@ -1,11 +1,11 @@
 
 # Secure User Authentication Backend
+A secure Spring Boot backend that authenticates users with Google OAuth 2.0 and manages user data using Spring Security and Spring Data JPA.
 
-A Spring Boot backend application that authenticates users through Google OAuth 2.0 and persists user information using Spring Data JPA.
+The project demonstrates modern backend development practices, including OAuth2 authentication, role-based authorization, REST API development, database persistence, Docker containerization, and automated testing with JUnit 5 and Mockito.
 
-The project was built to explore modern backend development practices including authentication, authorization, dependency injection, REST APIs, object-relational mapping (ORM), and database persistence.
+Authenticated users can sign in with their Google account, retrieve their profile information, and have their data securely stored in the application's database.
 
-Currently, authenticated users can sign in with their Google account, have their profile information retrieved, and be stored in the application's database.
 
 ## Technologies
 
